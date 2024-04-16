@@ -9,15 +9,16 @@ export default function Home() {
     setname("kavi")
   }
   return (
-    <main className="">
+    <div className="">
       <div>Home Page</div>
-      <Link href={"/login"}>Go to Login Page</Link>
+      <Link href={"/login"}>Go to Login Page</Link> {" "}
+      <Link href={"/about"}>Go to About Page</Link>
       <div>My name is {name}</div>
       <Name name="jatin" surname="Devaiya"/>
       <Name name="Hevin"/>
 
       <button onClick={()=>apple()} className="hover:underline">Click  Me</button>
-    </main>
+    </div>
   );
 }
 
