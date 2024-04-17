@@ -9,7 +9,7 @@ export default function Layout({ children }) {
   return (
     <html lang="en">
       <body>
-        {pathName !== "/login/loginTeacher" ? (
+        { !["/login/loginTeacher"].includes(pathName) ? (
           <ul>
             <li>
               <Link href="/">Login Main</Link>
