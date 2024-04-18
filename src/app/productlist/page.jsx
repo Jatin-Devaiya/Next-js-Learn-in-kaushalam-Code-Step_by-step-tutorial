@@ -22,12 +22,12 @@ const ProductList = () => {
   return (
     <div>
       <h1>Produc List</h1>
-      <h1>
+      {/* <h1>
         <Image src={imgpath} />
       </h1>
       <h1>
         <img src={imgpath.src} alt="img" />
-      </h1>
+      </h1> */}
       <br />
       <br />
       {product.map((product) => {

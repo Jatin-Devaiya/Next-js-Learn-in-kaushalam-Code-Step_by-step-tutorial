@@ -1,9 +1,16 @@
 "use client";
 
+import { Roboto } from "next/font/google";
 import Link from "next/link";
 import { useState } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
+
+const roboto = Roboto({
+  weight: "100",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function Home() {
   const [name, setname] = useState("Raj");
@@ -17,10 +24,16 @@ export default function Home() {
     <div className="">
       <div>Home Page</div>
       <div>Hello How are you!</div>
-      <div className={color=="red"?style.red:style.green}>I am Fine</div>
-      <button onClick={()=>setcolor("gray")}>change color</button>
+      <div className={color == "red" ? style.red : style.green}>I am Fine</div>
+      <button onClick={() => setcolor("gray")}>change color</button>
       <br />
-
+      <br />
+      {/* Font optimazation */}
+      {/* <h1 style={{fontFamily:"Roboto", fontWeight:100}}>Font Optimazatiom</h1><br/> */}
+      <h1 className={roboto.className}>
+        Font Optimazatiom with Next js feature
+      </h1>
+      <br />
       <Link href={"/login"}>Go to Login Page</Link>{" "}
       <Link href={"/about"}>Go to About Page</Link>
       <div>My name is {name}</div>
@@ -28,11 +41,10 @@ export default function Home() {
       <Name name="Hevin" />
       <button onClick={() => apple()} className="hover:underline">
         Click Me
-      </button> <br/>
-
+      </button>{" "}
+      <br />
       {/* <img src="/giftcard.jpg"/>
       <Image src={"/giftcard.jpg"} height={100} width={100}/> */}
-      
     </div>
   );
 }
