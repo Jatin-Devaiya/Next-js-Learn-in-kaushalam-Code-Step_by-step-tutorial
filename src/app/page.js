@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import custom from "./custom.module.css";
-import other from "./other.module.css";
 import style from "./style.module.css";
+import Image from "next/image";
 
 export default function Home() {
   const [name, setname] = useState("Raj");
@@ -16,8 +15,8 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className={custom.main}>Home Page</div>
-      <div className={other.main}>Hello How are you!</div>
+      <div>Home Page</div>
+      <div>Hello How are you!</div>
       <div className={color=="red"?style.red:style.green}>I am Fine</div>
       <button onClick={()=>setcolor("gray")}>change color</button>
       <br />
@@ -29,7 +28,11 @@ export default function Home() {
       <Name name="Hevin" />
       <button onClick={() => apple()} className="hover:underline">
         Click Me
-      </button>
+      </button> <br/>
+
+      {/* <img src="/giftcard.jpg"/>
+      <Image src={"/giftcard.jpg"} height={100} width={100}/> */}
+      
     </div>
   );
 }
