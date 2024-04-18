@@ -1,4 +1,5 @@
 import React from "react";
+import Product from "./product";
 
 const productlistserverside = async () => {
   const productList = async () => {
@@ -14,7 +15,8 @@ const productlistserverside = async () => {
         <>
           <h1>
             Name : {item.title} || Rating : {item.rating}{" "}
-          </h1>
+          </h1><br /><br />
+          <Product price={item?.price}/>
         </>
       ))}
     </div>
