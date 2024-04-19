@@ -1,13 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { Roboto } from "next/font/google";
 import Link from "next/link";
-import { useState } from "react";
-import style from "./style.module.css";
 import Image from "next/image";
+import style from "./style.module.css";
 
 const roboto = Roboto({
-  weight: "100",
+  weight: "900",
   subsets: ["latin"],
   display: "swap",
 });
