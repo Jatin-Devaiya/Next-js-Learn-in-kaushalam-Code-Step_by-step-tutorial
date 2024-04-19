@@ -1,17 +1,37 @@
-import React from 'react'
+// import React from 'react'
 
-const UserPage = () => {
-    
+// const UserPage = () => {
+
+//   return (
+//     <div>UserPage</div>
+//   )
+// }
+
+// export default UserPage
+
+// export function generateMetadata(){
+//     return{
+//         title:"user-page",
+//         description : "User page description",
+//     }
+// }
+
+"use client";
+
+import Script from "next/script";
+import React from "react";
+
+const page = () => {
   return (
-    <div>UserPage</div>
-  )
-}
+    <div>
+      <Script
+        src="/location.js"
+        onLoad={() => {
+          console.log("file Loaded");
+        }}
+      />
+    </div>
+  );
+};
 
-export default UserPage
-
-export function generateMetadata(){
-    return{
-        title:"user-page",
-        description : "User page description",
-    }
-}
+export default page;
