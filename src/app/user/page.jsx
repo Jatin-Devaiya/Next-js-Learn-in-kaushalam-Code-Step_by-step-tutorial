@@ -37,8 +37,10 @@
 // export default page;
 
 import React from "react";
+import UserComponent from "@/components/user";
+import Link from "next/link";
 
-async function userList() {
+export async function userList() {
   let data = await fetch("https://dummyjson.com/users");
   data = await data.json();
   return data.users;
@@ -49,10 +51,15 @@ const User = async () => {
   return (
     <div>
       <h1>User List</h1>
+      <br />
+      <UserComponent />
+      <br />
       {alluser.map((user) => {
         return (
           <>
-            <h1> Name : {user?.firstName}</h1>
+            <Link href={`/user/${user.id}`} user={user}>
+              <h1 key={user.id}> User : {user?.firstName}</h1>
+            </Link>
           </>
         );
       })}
