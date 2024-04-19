@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className="">
       <div>Home Page</div>
-      <div>Hello How are you!</div>
+      <div className="red">Hello How are you!</div>
       <div className={color == "red" ? style.red : style.green}>I am Fine</div>
       <button onClick={() => setcolor("gray")}>change color</button>
       <br />
