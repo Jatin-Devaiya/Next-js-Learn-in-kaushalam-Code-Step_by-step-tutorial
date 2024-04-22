@@ -7,7 +7,7 @@ export function GET(req, res, next) {
     return item.id == res.params.id;
   });
 
-  return NextResponse.json(userData.length == 0 ? "No data Found" : userData, {
+  return NextResponse.json(userData.length == 0 ? "No data Found" : userData[0], {
     status: 200,
   });
 }

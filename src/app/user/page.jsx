@@ -36,30 +36,58 @@
 
 // export default page;
 
-import React from "react";
-import UserComponent from "@/components/user";
+// import React from "react";
+// import UserComponent from "@/components/user";
+// import Link from "next/link";
+
+// export async function userList() {
+//   let data = await fetch("https://dummyjson.com/users");
+//   data = await data.json();
+//   return data.users;
+// }
+
+// const User = async () => {
+//   const alluser = await userList();
+//   return (
+//     <div>
+//       <h1>User List</h1>
+//       <br />
+//       <UserComponent />
+//       <br />
+//       {alluser.map((user) => {
+//         return (
+//           <>
+//             <Link href={`/user/${user.id}`} user={user}>
+//               <h1 key={user.id}> User : {user?.firstName}</h1>
+//             </Link>
+//           </>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+// export default User;
+
 import Link from "next/link";
+import React from "react";
 
-export async function userList() {
-  let data = await fetch("https://dummyjson.com/users");
+export const userDetail = async () => {
+  let data = await fetch("http://localhost:3000/api/users");
   data = await data.json();
-  return data.users;
-}
+  return data;
+};
 
-const User = async () => {
-  const alluser = await userList();
+const page = async () => {
+  const datas =await userDetail();
   return (
     <div>
-      <h1>User List</h1>
-      <br />
-      <UserComponent />
-      <br />
-      {alluser.map((user) => {
+      {datas.map((user) => {
         return (
           <>
-            <Link href={`/user/${user.id}`} user={user}>
-              <h1 key={user.id}> User : {user?.firstName}</h1>
-            </Link>
+            <div>
+              <Link href={`user/${user.id}`}>{user.name}</Link>
+            </div>
           </>
         );
       })}
@@ -67,4 +95,4 @@ const User = async () => {
   );
 };
 
-export default User;
+export default page;
