@@ -5,6 +5,7 @@ import { Roboto } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import style from "./style.module.css";
+import { API_BASE_URL } from "@/config/constants";
 
 const roboto = Roboto({
   weight: "900",
@@ -20,9 +21,24 @@ export default function Home() {
     setname("kavi");
   };
 
+  // check for deelopment mode or production mode
+  console.log(process.env.NODE_ENV, "==================");
+  // LOCAL ENV variables
+  console.log(process.env.SERVER_PASSWORD, "SERVER_PASSWORD");
+  console.log(process.env.DB_PASSWORD, "DB_PASSWORD");
+
   return (
     <div className="">
       <div>Home Page</div>
+      
+      {process.env.NODE_ENV == "development" ? (
+        <h1>You are development mode</h1>
+      ) : (
+        <h1>you are production mode</h1>
+      )}
+      {/* base url use */}
+      {API_BASE_URL}
+
       <div className="red">Hello How are you!</div>
       <div className={color == "red" ? style.red : style.green}>I am Fine</div>
       <button onClick={() => setcolor("gray")}>change color</button>
