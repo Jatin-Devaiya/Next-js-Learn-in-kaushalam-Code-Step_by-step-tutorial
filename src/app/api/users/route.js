@@ -1,5 +1,7 @@
+import { user } from "@/util/db";
 import { NextResponse } from "next/server";
 
-export function GET(req) {
-  return NextResponse.json({ name: "jatin", age: 28, city: "s.nagar" });
+export function GET() {
+  const data = user;
+  return NextResponse.json(data, { status: 200 });
 }
