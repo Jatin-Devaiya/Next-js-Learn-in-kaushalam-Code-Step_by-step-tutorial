@@ -86,7 +86,8 @@ const page = async () => {
         return (
           <>
             <div>
-              <Link href={`user/${user.id}`}>{user.name}</Link>
+              <Link href={`user/${user.id}`}>{user.name}</Link>{" "}
+              <Link href={`user/${user.id}/update`} className="text-blue-600 visited:text-purple-600">Edit</Link>
             </div>
           </>
         );
