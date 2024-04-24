@@ -69,8 +69,9 @@
 
 // export default User;
 
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import DeleteUser from "@/components/DeleteUser";
 
 export const userDetail = async () => {
   let data = await fetch("http://localhost:3000/api/users");
@@ -79,7 +80,7 @@ export const userDetail = async () => {
 };
 
 const page = async () => {
-  const datas =await userDetail();
+  const datas = await userDetail();
   return (
     <div>
       {datas.map((user) => {
@@ -87,7 +88,13 @@ const page = async () => {
           <>
             <div>
               <Link href={`user/${user.id}`}>{user.name}</Link>{" "}
-              <Link href={`user/${user.id}/update`} className="text-blue-600 visited:text-purple-600">Edit</Link>
+              <Link
+                href={`user/${user.id}/update`}
+                className="text-blue-600 visited:text-purple-600"
+              >
+                Edit{" "}
+              </Link>
+              <DeleteUser id={user.id} />
             </div>
           </>
         );
