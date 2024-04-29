@@ -1,3 +1,8 @@
+const { username, password } = process.env;
+export const connectionSrt = `mongodb+srv://jatindevaiya:${password}@cluster0.kjgiwx9.mongodb.net/product_db?retryWrites=true&w=majority&appName=Cluster0`
+
+// export const connectionSrt = `mongodb+srv://jatindevaiya:Googletest@cluster0.smuvz5a.mongodb.net/test_db?retryWrites=true&w=majority&appName=Cluster0`
+
 export const user = [
   {
     id: 1,
