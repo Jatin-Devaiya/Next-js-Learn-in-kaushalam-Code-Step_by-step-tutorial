@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 
 const productModel = new mongoose.Schema({
   name: String,
-  email: String,
-//   password: String,
+  price: String,
+  color: String,
+  category: String,
 });
 
 export const Product =
-  mongoose.models.products || mongoose.model("products", productModel);
+  mongoose.models.items || mongoose.model("items", productModel);

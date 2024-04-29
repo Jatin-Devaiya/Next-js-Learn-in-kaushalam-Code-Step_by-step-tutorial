@@ -61,6 +61,8 @@ export default function Home() {
       <br />
       {/* <img src="/giftcard.jpg"/>
       <Image src={"/giftcard.jpg"} height={100} width={100}/> */}
+      <br/>
+      <Link href={"/addproduct"}>Add Product</Link>
     </div>
   );
 }
