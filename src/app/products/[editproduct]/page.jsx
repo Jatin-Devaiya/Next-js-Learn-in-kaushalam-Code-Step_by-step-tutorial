@@ -22,9 +22,22 @@ const page = (props) => {
       setcategory(result.category);
     }
   };
+
+  const updateProduct = async () => {
+    let productId = props.params.editproduct;
+    let data = await fetch(`http://localhost:3000/api/products/${productId}`, {
+      method: "PUT",
+      body: JSON.stringify({ name, price, color, category }),
+    });
+    data = await data.json();
+    if (data.result) {
+        alert("Product Update Success")
+    }
+  };
+
   useEffect(() => {
     getProductDetails();
-  });
+  },[]);
 
   return (
     <>
@@ -58,10 +71,12 @@ const page = (props) => {
 
       <button
         className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
-        onClick={""}
+        onClick={updateProduct}
       >
         Update Product
-      </button><br /><br />
+      </button>
+      <br />
+      <br />
       <Link href={"/products"}>go to Product List Page</Link>
     </>
   );
