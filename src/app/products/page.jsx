@@ -28,19 +28,29 @@ const page = async () => {
           </tr>
         </thead>
         <tbody>
-          {product.map((item) => 
-        //   {
-            // return (
-            //   <>
-                <tr>
-                  <td>{item.name}</td>
-                  <td>{item.price}</td>
-                  <td>{item.color}</td>
-                  <td>{item.category}</td>
-                </tr>
+          {product.map(
+            (item) => (
+              //   {
+              // return (
+              //   <>
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.price}</td>
+                <td>{item.color}</td>
+                <td>{item.category}</td>
+                <td>
+                  <Link
+                    href={`products/${item._id}`}
+                    className="text-blue-600 visited:text-purple-600"
+                  >
+                    Edit
+                  </Link>
+                </td>
+              </tr>
+            )
             //   </>
             // );
-        //   }
+            //   }
           )}
         </tbody>
       </table>
