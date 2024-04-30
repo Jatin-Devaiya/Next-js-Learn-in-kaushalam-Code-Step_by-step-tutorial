@@ -1,8 +1,11 @@
+import DeleteProduct from "@/util/model/DeleteProduct";
 import Link from "next/link";
 import React from "react";
 
 const getProducts = async () => {
-  let data = await fetch(`http://localhost:3000/api/products`);
+  let data = await fetch(`http://localhost:3000/api/products`, {
+    cache: "no-cache",
+  });
   data = await data.json();
   if (data.success) {
     return data.result;
@@ -13,7 +16,6 @@ const getProducts = async () => {
 
 const page = async () => {
   const product = await getProducts();
-  console.log(product, "============");
   return (
     <div>
       <h1>Product List</h1>
@@ -46,6 +48,7 @@ const page = async () => {
                     Edit
                   </Link>
                 </td>
+                <DeleteProduct id={item._id} />
               </tr>
             )
             //   </>
